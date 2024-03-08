@@ -1,0 +1,33 @@
+{
+  "name": "@bobanetwork/light-bridge-chains",
+  "version": "1.0.9",
+  "description": "Light Bridge Network configuration",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobanetwork/light-bridge-chains.git"
+  },
+  "author": "Enya Labs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bobanetwork/light-bridge-chains/issues"
+  },
+  "homepage": "https://github.com/bobanetwork/light-bridge-chains#readme",
+  "dependencies": {
+    "dotenv": "^8.6.0",
+    "ethers": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^16.18.62",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2"
+  }
+}
