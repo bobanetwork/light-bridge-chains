@@ -14,17 +14,6 @@ export interface SupportedAssets {
     [address: string]: string // symbol (MUST BE UNIQUE)
 }
 
-export interface AssetReceivedEvent {
-    args: {
-        token: string
-        sourceChainId: BigNumber
-        toChainId: BigNumber
-        depositId: BigNumber
-        emitter: string
-        amount: BigNumber
-    }
-}
-
 /** @dev Allow airdropping gas only when the sourceNetwork is eligible (security check to avoid arbitrage). */
 export enum EAirdropSource {
     ALLOW = 'allow',
