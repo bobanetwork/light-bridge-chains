@@ -132,6 +132,40 @@ export const BobaChains: IBobaChains = {
             airdropEnabled: false,
         },
     },
+    421614: {
+        url:
+            process.env.LIGHTBRIDGE_RPC_ARBITRUMSEPOLIA ??
+            'https://public.stackup.sh/api/v1/node/arbitrum-sepolia',
+        testnet: true,
+        layer: EAirdropSource.PROHIBIT,
+        name: 'Arbitrum Sepolia',
+        teleportationAddress: '0x3fc06c53aa3Ef19ad7830f5F18C9186C676EdE29',
+        height: 28263911,
+        supportedAssets: {
+            ['0x0000000000000000000000000000000000000000'.toLowerCase()]: Asset.ETH,
+        },
+        airdropConfig: {
+            ...DefaultAirdropConfigs[Asset.ETH],
+            airdropEnabled: false,
+        },
+    },
+    11155420: {
+        url:
+            process.env.LIGHTBRIDGE_RPC_OPTIMISMSEPOLIA ??
+            'https://sepolia.optimism.io',
+        testnet: true,
+        layer: EAirdropSource.PROHIBIT,
+        name: 'Optimism Sepolia',
+        teleportationAddress: '0x3fc06c53aa3Ef19ad7830f5F18C9186C676EdE29',
+        height: 9968072,
+        supportedAssets: {
+            ['0x0000000000000000000000000000000000000000'.toLowerCase()]: Asset.ETH,
+        },
+        airdropConfig: {
+            ...DefaultAirdropConfigs[Asset.ETH],
+            airdropEnabled: false,
+        },
+    },
     420: {
         url:
             process.env.LIGHTBRIDGE_RPC_OPTIMISMGOERLI ??
