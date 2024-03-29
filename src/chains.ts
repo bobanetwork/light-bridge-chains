@@ -15,6 +15,7 @@ export enum Asset {
     BOBA = 'boba-network',
     USDT = 'tether',
     BNB = 'binancecoin',
+    OMG = 'omg-network',
 }
 
 /** @dev Sometimes Boba is the native asset. If airdrop is enabled is set on network config level. */
@@ -51,6 +52,7 @@ export const BobaChains: IBobaChains = {
         supportedAssets: {
             ['0xa18bF3994C0Cc6E3b63ac420308E5383f53120D7'.toLowerCase()]: Asset.BOBA,
             ['0x0000000000000000000000000000000000000000'.toLowerCase()]: Asset.ETH,
+            ['0xe1E2ec9a85C607092668789581251115bCBD20de'.toLowerCase()]: Asset.OMG,
         },
         airdropConfig: {
             ...DefaultAirdropConfigs[Asset.ETH],
@@ -87,6 +89,7 @@ export const BobaChains: IBobaChains = {
         supportedAssets: {
             ['0x4200000000000000000000000000000000000023'.toLowerCase()]: Asset.BOBA,
             ['0x0000000000000000000000000000000000000000'.toLowerCase()]: Asset.ETH,
+            ['0x080bf38b43a1441873116002d36CCB583464cF45'.toLowerCase()]: Asset.OMG,
         },
         airdropConfig: {
             ...DefaultAirdropConfigs[Asset.ETH],
@@ -194,6 +197,7 @@ export const BobaChains: IBobaChains = {
             ['0x0000000000000000000000000000000000000000'.toLowerCase()]: Asset.ETH,
             ['0xdAC17F958D2ee523a2206206994597C13D831ec7'.toLowerCase()]: Asset.USDT,
             ['0xB8c77482e45F1F44dE1745F52C74426C631bDD52'.toLowerCase()]: Asset.BNB,
+            ['0xd26114cd6ee289accf82350c8d8487fedb8a0c07'.toLowerCase()]: Asset.OMG,
         },
         airdropConfig: {
             ...DefaultAirdropConfigs[Asset.ETH],
@@ -269,6 +273,7 @@ export const BobaChains: IBobaChains = {
             ['0x0000000000000000000000000000000000000000'.toLowerCase()]: Asset.ETH,
             ['0xC2C527C0CACF457746Bd31B2a698Fe89de2b6d49'.toLowerCase()]: Asset.USDT,
             ['0xFC1C82c5EdeB51082CF30FDDb434D2cBDA1f6924'.toLowerCase()]: Asset.BNB,
+            ['0xCb9b561c91dDA1A9bAc33F7716a4d5586B7F5649'.toLowerCase()]: Asset.OMG,
         },
         airdropConfig: {
             ...DefaultAirdropConfigs[Asset.ETH],
