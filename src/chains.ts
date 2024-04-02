@@ -1,11 +1,12 @@
-import { ethers } from 'ethers'
-import { ChainInfo, EAirdropSource, IAirdropConfig } from './types'
+import {ethers} from 'ethers'
+import {ChainInfo, EAirdropSource, IAirdropConfig} from './types'
 import * as dotenv from 'dotenv'
 
 dotenv.config()
 
 
 export type IBobaChain = Omit<ChainInfo, 'chainId' | 'provider'>
+
 export interface IBobaChains {
     [chainId: number]: IBobaChain
 }
@@ -32,6 +33,26 @@ const DefaultAirdropConfigs: {
     },
 }
 
+const PUBLIC_RPCs = {
+    288: ["https://boba-ethereum.gateway.tenderly.co"],
+    56288: ["https://replica.bnb.boba.network"],
+    9728: ["https://boba-bnb-testnet.gateway.tenderly.co"],
+    421614: ["https://public.stackup.sh/api/v1/node/arbitrum-sepolia"],
+    11155420: ["https://sepolia.optimism.io"],
+    42161: ["https://arbitrum.llamarpc.com"],
+    10: ["https://optimism.llamarpc.com"],
+    1: ["https://eth.llamarpc.com"],
+    56: ["https://rpc.ankr.com/bsc", "https://bsc.blockpi.network/v1/rpc/public", "https://bsc-dataseed4.defibit.io", "https://bsc-dataseed1.ninicoin.io",
+        "https://binance.nodereal.io", "https://bsc.drpc.org"],
+    11155111: ["https://ethereum-sepolia.publicnode.com"],
+    28882: ["https://sepolia.boba.network"],
+    97: ["https://bsc-testnet-rpc.publicnode.com"],
+}
+
+export const getRandomPublicRpc = (chainId: number) => {
+    return PUBLIC_RPCs[chainId][Math.floor(Math.random() * PUBLIC_RPCs[chainId].length)]
+}
+
 /**
  * @dev Chain configs
  * @property supportedAssets: BOBA as fee token only supported for EOAs, since Teleporter consists of a contract & the disburser wallet (assuming ETH fee) everything with 0x0 should be fine.
@@ -43,7 +64,7 @@ export const BobaChains: IBobaChains = {
     288: {
         url:
             process.env.LIGHTBRIDGE_RPC_BOBAETHMAINNET ??
-            'https://boba-ethereum.gateway.tenderly.co',
+            getRandomPublicRpc(288),
         testnet: false,
         layer: EAirdropSource.PROHIBIT,
         name: 'Boba Ethereum Mainnet',
@@ -62,7 +83,7 @@ export const BobaChains: IBobaChains = {
     56288: {
         url:
             process.env.LIGHTBRIDGE_RPC_BOBABNBMAINNET ??
-            'https://replica.bnb.boba.network',
+            getRandomPublicRpc(56288),
         testnet: false,
         layer: EAirdropSource.PROHIBIT,
         name: 'Boba BNB Mainnet',
@@ -77,29 +98,10 @@ export const BobaChains: IBobaChains = {
             airdropEnabled: true,
         },
     },
-    2888: {
-        url:
-            process.env.LIGHTBRIDGE_RPC_BOBAETHGOERLI ??
-            'https://replica.goerli.boba.network',
-        testnet: true,
-        layer: EAirdropSource.PROHIBIT,
-        name: 'Boba Ethereum Goerli',
-        teleportationAddress: '0xB43EE846Aa266228FeABaD1191D6cB2eD9808894',
-        height: 40822,
-        supportedAssets: {
-            ['0x4200000000000000000000000000000000000023'.toLowerCase()]: Asset.BOBA,
-            ['0x0000000000000000000000000000000000000000'.toLowerCase()]: Asset.ETH,
-            ['0x080bf38b43a1441873116002d36CCB583464cF45'.toLowerCase()]: Asset.OMG,
-        },
-        airdropConfig: {
-            ...DefaultAirdropConfigs[Asset.ETH],
-            airdropEnabled: true,
-        },
-    },
     9728: {
         url:
             process.env.LIGHTBRIDGE_RPC_BOBABNBTESTNET ??
-            'https://boba-bnb-testnet.gateway.tenderly.co',
+            getRandomPublicRpc(9728),
         testnet: true,
         layer: EAirdropSource.PROHIBIT,
         name: 'Boba BNB Testnet',
@@ -115,27 +117,10 @@ export const BobaChains: IBobaChains = {
             airdropEnabled: true,
         },
     },
-    421613: {
-        url:
-            process.env.LIGHTBRIDGE_RPC_ARBITRUMGOERLI ??
-            'https://arbitrum-goerli.public.blastapi.io',
-        testnet: true,
-        layer: EAirdropSource.PROHIBIT,
-        name: 'Arbitrum Goerli',
-        teleportationAddress: '0x7063f59e1Db3e505D844d11A71C78F92D39E5963',
-        height: 53880808,
-        supportedAssets: {
-            ['0x0000000000000000000000000000000000000000'.toLowerCase()]: Asset.ETH,
-        },
-        airdropConfig: {
-            ...DefaultAirdropConfigs[Asset.ETH],
-            airdropEnabled: false,
-        },
-    },
     421614: {
         url:
             process.env.LIGHTBRIDGE_RPC_ARBITRUMSEPOLIA ??
-            'https://public.stackup.sh/api/v1/node/arbitrum-sepolia',
+            getRandomPublicRpc(421614),
         testnet: true,
         layer: EAirdropSource.PROHIBIT,
         name: 'Arbitrum Sepolia',
@@ -152,7 +137,7 @@ export const BobaChains: IBobaChains = {
     11155420: {
         url:
             process.env.LIGHTBRIDGE_RPC_OPTIMISMSEPOLIA ??
-            'https://sepolia.optimism.io',
+            getRandomPublicRpc(11155420),
         testnet: true,
         layer: EAirdropSource.PROHIBIT,
         name: 'Optimism Sepolia',
@@ -166,27 +151,10 @@ export const BobaChains: IBobaChains = {
             airdropEnabled: false,
         },
     },
-    420: {
-        url:
-            process.env.LIGHTBRIDGE_RPC_OPTIMISMGOERLI ??
-            'https://optimism-goerli.publicnode.com',
-        testnet: true,
-        layer: EAirdropSource.PROHIBIT,
-        name: 'Optimism Goerli',
-        teleportationAddress: '0xC226F132A686A08018431C913d87693396246024',
-        height: 17010097,
-        supportedAssets: {
-            ['0x0000000000000000000000000000000000000000'.toLowerCase()]: Asset.ETH,
-        },
-        airdropConfig: {
-            ...DefaultAirdropConfigs[Asset.ETH],
-            airdropEnabled: false,
-        },
-    },
     42161: {
         url:
             process.env.LIGHTBRIDGE_RPC_ARBITRUMMAINNET ??
-            'https://arbitrum.llamarpc.com',
+            getRandomPublicRpc(42161),
         testnet: false,
         layer: EAirdropSource.PROHIBIT,
         name: 'Arbitrum Mainnet',
@@ -203,7 +171,7 @@ export const BobaChains: IBobaChains = {
     10: {
         url:
             process.env.LIGHTBRIDGE_RPC_OPTIMISMMAINNET ??
-            'https://optimism.llamarpc.com',
+            getRandomPublicRpc(10),
         testnet: false,
         layer: EAirdropSource.PROHIBIT,
         name: 'Optimism Mainnet',
@@ -220,7 +188,7 @@ export const BobaChains: IBobaChains = {
     //#endregion
     //#region l1
     1: {
-        url: process.env.LIGHTBRIDGE_RPC_ETHMAINNET ?? 'https://eth.llamarpc.com',
+        url: process.env.LIGHTBRIDGE_RPC_ETHMAINNET ?? getRandomPublicRpc(1),
         testnet: false,
         name: 'Ethereum Mainnet',
         layer: EAirdropSource.ALLOW,
@@ -239,7 +207,7 @@ export const BobaChains: IBobaChains = {
         },
     },
     56: {
-        url: process.env.LIGHTBRIDGE_RPC_BNBMAINNET ?? 'https://rpc.ankr.com/bsc',
+        url: process.env.LIGHTBRIDGE_RPC_BNBMAINNET ?? getRandomPublicRpc(56),
         testnet: false,
         name: 'BNB Mainnet',
         layer: EAirdropSource.PROHIBIT, // also do not allow bnb mainnet as too cheap
@@ -259,7 +227,7 @@ export const BobaChains: IBobaChains = {
     11155111: {
         url:
             process.env.LIGHTBRIDGE_RPC_SEPOLIATESTNET ??
-            'https://ethereum-sepolia.publicnode.com',
+            getRandomPublicRpc(11155111),
         testnet: true,
         layer: EAirdropSource.ALLOW,
         name: 'Sepolia Testnet',
@@ -278,7 +246,7 @@ export const BobaChains: IBobaChains = {
     28882: {
         url:
             process.env.LIGHTBRIDGE_RPC_BOBASEPOLIATESTNET ??
-            'https://sepolia.boba.network',
+            getRandomPublicRpc(28882),
         testnet: true,
         layer: EAirdropSource.PROHIBIT,
         name: 'Boba Sepolia Testnet',
@@ -293,31 +261,10 @@ export const BobaChains: IBobaChains = {
             airdropEnabled: true,
         },
     },
-    5: {
-        url:
-            process.env.LIGHTBRIDGE_RPC_GOERLITESTNET ??
-            'https://rpc.ankr.com/eth_goerli',
-        testnet: true,
-        layer: EAirdropSource.ALLOW,
-        name: 'Goerli Testnet',
-        teleportationAddress: '0x84b22166366a6f7E0cD0c3ce9998f2913Bf17A13',
-        height: 9484025,
-        supportedAssets: {
-            ['0xeCCD355862591CBB4bB7E7dD55072070ee3d0fC1'.toLowerCase()]: Asset.BOBA,
-            ['0x0000000000000000000000000000000000000000'.toLowerCase()]: Asset.ETH,
-            ['0xC2C527C0CACF457746Bd31B2a698Fe89de2b6d49'.toLowerCase()]: Asset.USDT,
-            ['0xFC1C82c5EdeB51082CF30FDDb434D2cBDA1f6924'.toLowerCase()]: Asset.BNB,
-            ['0xCb9b561c91dDA1A9bAc33F7716a4d5586B7F5649'.toLowerCase()]: Asset.OMG,
-        },
-        airdropConfig: {
-            ...DefaultAirdropConfigs[Asset.ETH],
-            airdropEnabled: false,
-        },
-    },
     97: {
         url:
             process.env.LIGHTBRIDGE_RPC_BNBTESTNET ??
-            'https://bsc-testnet-rpc.publicnode.com',
+            getRandomPublicRpc(97),
         testnet: true,
         layer: EAirdropSource.PROHIBIT,
         name: 'BNB Testnet',

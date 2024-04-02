@@ -2,3 +2,5 @@
 ./build
 ./dist
 ./.idea
+node_modules
+node_modules/.pnpm
