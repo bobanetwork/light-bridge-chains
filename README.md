@@ -9,7 +9,7 @@ Chain Configs for Light Bridge
 
 > Run tests with coverage
 > 
-```yarn test-cover```
+```yarn test-coverage```
 
 <img src="coverage/badge-lines.svg" alt="Line Coverage"> 
 <br>
