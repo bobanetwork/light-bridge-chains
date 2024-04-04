@@ -4,3 +4,7 @@
 ./.idea
 node_modules
 node_modules/.pnpm
+.idea/
+node_modules/.tsup
+node_modules/.bin
+node_modules/**/*

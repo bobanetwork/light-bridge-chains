@@ -1,6 +1,6 @@
 {
   "name": "@bobanetwork/light-bridge-chains",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Light Bridge Network configuration",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
