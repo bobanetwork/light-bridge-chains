@@ -60,7 +60,6 @@ export interface ILightBridgeOpts {
     envModeIsDevelopment: boolean
     networkMode: ENetworkMode
     pollingInterval: number
-    blockRangePerPolling: number
     awsKmsConfig: IKMSSignerConfig
     localNetworks?: {
         mainNetwork: ChainInfo
