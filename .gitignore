@@ -8,3 +8,7 @@ node_modules/.pnpm
 node_modules/.tsup
 node_modules/.bin
 node_modules/**/*
+
+/coverage/lcov-report
+/coverage/coverage-summary.json
+/coverage/lcov.info
