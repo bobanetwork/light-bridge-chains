@@ -88,7 +88,7 @@ export const BobaChains: IBobaChains = {
         layer: EAirdropSource.PROHIBIT,
         name: 'Boba BNB Mainnet',
         teleportationAddress: '0x670b130112C6f03E17192e63c67866e67D77c3ee',
-        height: 3393,
+        height: 36827086,
         supportedAssets: {
             ['0x0000000000000000000000000000000000000000'.toLowerCase()]: Asset.BOBA,
             ['0x4200000000000000000000000000000000000023'.toLowerCase()]: Asset.BNB,

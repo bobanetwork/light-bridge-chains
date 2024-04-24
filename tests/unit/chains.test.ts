@@ -12,7 +12,10 @@ describe("chains", () => {
 
     /** @DEV brittle */
     it("should get random RPC with multiple endpoints & randomized", () => {
-        let randomRPCs = [getRandomPublicRpc(56), getRandomPublicRpc(56), getRandomPublicRpc(56), getRandomPublicRpc(56)]
+        let randomRPCs = []
+        for (let i = 0; i < 10; i++) {
+            randomRPCs.push(getRandomPublicRpc(56))
+        }
         const areDifferent = new Set(randomRPCs).size === randomRPCs.length
         expect(areDifferent).toBe(false)
     });
