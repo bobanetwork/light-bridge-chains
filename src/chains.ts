@@ -77,7 +77,7 @@ export const BobaChains: IBobaChains = {
         },
         airdropConfig: {
             ...DefaultAirdropConfigs[Asset.ETH],
-            airdropEnabled: true,
+            airdropEnabled: true, // if you set this to FALSE, then you need to update the backend logic for fee deducation! which uses this parameter as replacement if we deduct the exit fee or not
         },
     },
     56288: {
@@ -95,7 +95,7 @@ export const BobaChains: IBobaChains = {
         },
         airdropConfig: {
             ...DefaultAirdropConfigs[Asset.BOBA],
-            airdropEnabled: true,
+            airdropEnabled: true, // if you set this to FALSE, then you need to update the backend logic for fee deducation! which uses this parameter as replacement if we deduct the exit fee or not
         },
     },
     9728: {
@@ -114,7 +114,7 @@ export const BobaChains: IBobaChains = {
         },
         airdropConfig: {
             ...DefaultAirdropConfigs[Asset.BOBA],
-            airdropEnabled: true,
+            airdropEnabled: true, // if you set this to FALSE, then you need to update the backend logic for fee deducation! which uses this parameter as replacement if we deduct the exit fee or not
         },
     },
     421614: {
@@ -258,7 +258,7 @@ export const BobaChains: IBobaChains = {
         },
         airdropConfig: {
             ...DefaultAirdropConfigs[Asset.ETH],
-            airdropEnabled: true,
+            airdropEnabled: true, // if you set this to FALSE, then you need to update the backend logic for fee deducation! which uses this parameter as replacement if we deduct the exit fee or not
         },
     },
     97: {
