@@ -59,6 +59,7 @@ export interface ILightBridgeOpts {
     rpcUrl: string
     envModeIsDevelopment: boolean
     networkMode: ENetworkMode
+    blockRangePerPolling: number
     pollingInterval: number
     awsKmsConfig: IKMSSignerConfig
     localNetworks?: {
