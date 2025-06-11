@@ -37,7 +37,7 @@ const PUBLIC_RPCs = {
     288: ["https://boba-ethereum.gateway.tenderly.co"],
     56288: ["https://replica.bnb.boba.network"],
     9728: ["https://boba-bnb-testnet.gateway.tenderly.co"],
-    421614: ["https://public.stackup.sh/api/v1/node/arbitrum-sepolia"],
+    421614: ["https://arbitrum-sepolia.gateway.tenderly.co"],
     11155420: ["https://sepolia.optimism.io"],
     42161: ["https://arbitrum.llamarpc.com"],
     10: ["https://optimism.llamarpc.com"],
