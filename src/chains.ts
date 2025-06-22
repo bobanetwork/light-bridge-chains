@@ -33,19 +33,19 @@ const DefaultAirdropConfigs: {
     },
 }
 
-const PUBLIC_RPCs = {
+export const PUBLIC_RPCs = {
     288: ["https://boba-ethereum.gateway.tenderly.co"],
     56288: ["https://replica.bnb.boba.network"],
     9728: ["https://boba-bnb-testnet.gateway.tenderly.co"],
     421614: ["https://arbitrum-sepolia.gateway.tenderly.co"],
     11155420: ["https://sepolia.optimism.io"],
-    42161: ["https://arbitrum.llamarpc.com"],
-    10: ["https://optimism.llamarpc.com"],
+    42161: ["https://arbitrum.gateway.tenderly.co"],
+    10: ["https://optimism.gateway.tenderly.co"],
     1: ["https://eth.llamarpc.com"],
-    56: ["https://rpc.ankr.com/bsc", "https://bsc.blockpi.network/v1/rpc/public", "https://bsc-dataseed4.defibit.io", "https://bsc-dataseed1.ninicoin.io",
+    56: ["https://bsc-dataseed4.defibit.io", "https://bsc-dataseed1.ninicoin.io",
         "https://binance.nodereal.io", "https://bsc.drpc.org"],
     11155111: ["https://ethereum-sepolia.publicnode.com"],
-    28882: ["https://sepolia.boba.network"],
+    28882: ["https://boba-sepolia.gateway.tenderly.co"],
     97: ["https://bsc-testnet-rpc.publicnode.com"],
 }
 
